@@ -1,0 +1,93 @@
+#person-info{
+    width:640px;
+    position:relative;
+    margin:auto;
+}
+#title{
+    text-align:center;
+    border:1px black solid;
+    height:30px;
+    line-height:30px;
+}
+#basic{
+    width:550px;
+
+}
+#basic div{
+    float:left;
+    border:1px black solid;
+    text-align: center;
+    line-height: 30px;
+}
+.b_title{
+    width:70px;
+    height:30px;
+
+}
+.b_value{
+    width:200px;
+    height:30px;
+}
+#photo{
+    width:90px;
+    height:126px;
+    border:1px solid black;
+    position:absolute;
+    right:0;
+}
+
+#skill-title{
+    width:638px;
+    height:30px;
+    line-height: 30px;
+    position:absolute;
+    top:159px;
+    border:1px solid black;
+}
+#skill-content{
+    width:638px;
+    line-height: 25px;
+    position:absolute;
+    top:190px;
+    border:1px black solid;
+}
+
+#we-title{
+    width:638px;
+    height:30px;
+    line-height: 30px;
+    position:absolute;
+    top:510px;
+
+    border-left:1px solid black;
+    border-bottom:1px solid black;
+    border-right:1px solid black;
+}
+#we-content{
+    width:638px;
+    line-height: 25px;
+    position:absolute;
+    top:540px;
+    border-left:1px solid black;
+    border-bottom:1px solid black;
+    border-right:1px solid black;
+}
+#project-title{
+    width:638px;
+    height:30px;
+    line-height: 30px;
+    position:absolute;
+    top:688px;
+    border-left:1px solid black;
+    border-bottom:1px solid black;
+    border-right:1px solid black;
+}
+#project-content{
+    width:638px;
+    line-height: 25px;
+    position:absolute;
+    top:718px;
+    border-left:1px solid black;
+    border-bottom:1px solid black;
+    border-right:1px solid black;
+}

@@ -1,0 +1,44 @@
+
+*{
+margin:0;
+padding:0;
+}
+body{
+    background: #ecf0ff;
+    background-size: 100%;
+}
+#top-nav{
+    height:50px;
+    background-color: whitesmoke;
+    overflow: hidden;
+}
+
+#top-nav-bar div div{
+    padding: 15px;
+}
+#top-nav-bar-left-1{
+    width:50px;
+    height:50px;
+}
+#icon1{
+    width:30px;
+    height:30px;
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+}
+.nav-active{
+    background-color: dimgray;
+}
+.top-nav-bar-left{
+    float:left;
+}
+.top-nav-bar-right{
+    float:right;
+}
+.main-info{
+    color:black;
+}
+.footer{
+    color:black;
+}
