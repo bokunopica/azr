@@ -9,3 +9,5 @@ class user_api_resource(Resource):
 class user_login_register(Resource):
     def get(self):
         return {"msg":"ok"}
+    def post(self):
+        return {"msg":"post"}
