@@ -1,9 +1,9 @@
-import os
-
 from flask import Config
 
 from AZRWeb import bp
 from AZRWebApi import azr_web_user_client_api,azr_web_admin_client_api
+
+
 
 
 def init_app(app):

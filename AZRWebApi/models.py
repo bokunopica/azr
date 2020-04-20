@@ -14,7 +14,7 @@ class User(BaseModel):
     __tablename__ = 'user'
     u_name = db.Column(db.String(30), nullable=False, unique=True, comment='用户名')
     u_password = db.Column(db.String(256), nullable=False, comment='密码')
-    u_email = db.Column(db.String(100), nullable=False, comment='邮箱')
+    u_email = db.Column(db.String(100), nullable=False, comment='邮箱',unique=True)
     u_email_check = db.Column(db.Boolean, default=False, comment='邮箱验证')
     is_clan_member = db.Column(db.Boolean, default=False, comment='是否是战队成员 1是 0否')
     is_admin = db.Column(db.Boolean, default=False, comment='是否是管理员 1是 0否')
