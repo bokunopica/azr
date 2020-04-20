@@ -5,7 +5,7 @@ from email.mime.text import MIMEText
 from flask import request, g
 from flask_restful import reqparse
 
-from AZRWebApi import User
+from AZRWebApi.models import User
 from config.extensions import cache
 
 
@@ -48,6 +48,18 @@ def login_check(func):
         g.access_token = token
         if not user:
             return {"msg": "登录验证失败"}
+        return func(*args, **kwargs)
+    return wrapper
+
+def admin_check(func):
+    def wrapper(*args,**kwargs):
+        token = token_parser.parse_args().get("access_token")
+        user_id = cache.get(token)
+        user = User.query.get(user_id)
+        g.user = user
+        g.access_token = token
+        if not user.is_admin:
+            return {"msg": "非管理员,无法操作"}
         return func(*args, **kwargs)
     return wrapper
 

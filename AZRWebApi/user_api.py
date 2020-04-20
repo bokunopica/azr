@@ -24,6 +24,7 @@ user_register_parser = user_login_parser.copy()
 user_register_parser.add_argument("email", type=str, required=True, help="please input the correct email")
 
 user_fields = {
+    "id":fields.Integer,
     "u_name": fields.String,
     "u_email": fields.String,
     "u_email_check": fields.Boolean,

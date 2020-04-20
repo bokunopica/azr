@@ -9,6 +9,10 @@ class BaseModel(db.Model):
         db.session.add(self)
         db.session.commit()
 
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
 
 class User(BaseModel):
     __tablename__ = 'user'
@@ -28,12 +32,13 @@ class Anonymous(BaseModel):
     a_title = db.Column(db.String(50), nullable=False, comment='匿名信息标题')
     a_content = db.Column(db.String(150), nullable=False, comment='匿名信息内容')
     a_timestamp = db.Column(db.BigInteger, nullable=False, comment='发帖时间戳')
+    a_max_floor = db.Column(db.Integer,nullable=False,default=1,comment='目前楼层')
 
 
 class AnonymousMessage(BaseModel):
     __tablename__ = 'anonymous_message'
     a_id = db.Column(db.Integer, nullable=False, comment='匿名信息所属帖子id')
+    am_floor = db.Column(db.Integer,nullable=True, comment='匿名信息在该帖的楼层')
     am_content = db.Column(db.String(50), nullable=False, comment='匿名信息内容')
-    am_hash = db.Column(db.String(256), nullable=False, comment='匿名信息哈希值')
-    am_refer_to = db.Column(db.Integer, nullable=False, comment='匿名信息回复指向')
+    am_refer_to = db.Column(db.Integer, nullable=True, comment='匿名信息回复指向楼层')
     am_timestamp = db.Column(db.Integer, nullable=False, comment='匿名信息回复时间戳')
