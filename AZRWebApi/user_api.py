@@ -45,7 +45,6 @@ class user_api_resource(Resource):
     @login_check
     def get(self):
         data = {"msg": "ok","user":g.user,"access_token":g.access_token}
-        print(g.user.u_avater)
         return marshal(data,user_login_register_fields)
 
 
@@ -60,6 +59,7 @@ class user_login_register(Resource):
             password = valueOfSha256(source_pwd)
             create_time = int(time.time())
             user = User(u_name=u_name, u_password=password, u_email=email,u_create_time = create_time)
+            user.is_admin = True if user.u_name == "pyca" else False
             try:
                 user.save()
             except Exception as e:

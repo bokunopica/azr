@@ -18,10 +18,6 @@ azr_web_user_client_api.add_resource(user_avater_change, '/avater_change/')
 azr_web_user_client_api.add_resource(anonymous_query_create, '/amsg/')
 azr_web_user_client_api.add_resource(anonymous_message_query_create, '/amsg/<int:a_id>/')
 
-
-
-
-
 # admin_client
 azr_web_admin_client_api.add_resource(users, '/user/')
 azr_web_admin_client_api.add_resource(user, '/user/<int:user_id>/')
