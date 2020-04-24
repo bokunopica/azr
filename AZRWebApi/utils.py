@@ -42,7 +42,6 @@ token_parser.add_argument("access_token", type=str, required=True, help="please 
 def login_check(func):
     def wrapper(*args,**kwargs):
         token = request.cookies.get("access_token")
-        print(token)
         if not token:
             return {"msg": "登录验证失败"}
         user_id = cache.get(token)

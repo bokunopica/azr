@@ -35,10 +35,18 @@ body{
 }
 .top-nav-bar-right{
     float:right;
+    margin-right:10px;
 }
 .main-info{
     color:black;
 }
 .footer{
     color:black;
+}
+#avater img{
+    width:30px;
+    height:30px;
+    position: absolute;
+    top:10px;
+    bottom:10px;
 }
