@@ -9,7 +9,7 @@ def index():
 
 @bp.route("/home/")
 def home():
-    return render_template("innerContent.html")
+    return render_template("home.html")
 
 @bp.route("/resume/")
 def resume():
@@ -22,3 +22,7 @@ def register():
 @bp.route("/login/")
 def login():
     return render_template("login.html")
+
+@bp.route("/user/")
+def user():
+    return render_template("user.html")

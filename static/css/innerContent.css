@@ -1,52 +1,171 @@
 
-*{
-margin:0;
-padding:0;
+* {
+    margin: 0;
+    padding: 0;
 }
-body{
-    background: #ecf0ff;
+
+html{
+    height:100%;
+}
+
+body {
+    height: 100%;
+    background: url("../img/csgo-bg-opacity.jpg");
     background-size: 100%;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+    position:relative;
 }
-#top-nav{
-    height:50px;
-    background-color: whitesmoke;
+
+p{
+    color:#cccccc;
+}
+
+#top-nav {
+    height: 50px;
+    background-color: #cccccc;
     overflow: hidden;
 }
 
-#top-nav-bar div div{
+#top-nav-bar div div {
     padding: 15px;
 }
-#top-nav-bar-left-1{
-    width:50px;
-    height:50px;
+
+#top-nav-bar-left-1 {
+    width: 50px;
+    height: 50px;
 }
-#icon1{
-    width:30px;
-    height:30px;
+
+#icon1 {
+    width: 30px;
+    height: 30px;
     position: absolute;
     top: 10px;
     bottom: 10px;
 }
-.nav-active{
-    background-color: dimgray;
+
+.nav-active {
+    background-color: #a8a7a7;
 }
-.top-nav-bar-left{
-    float:left;
+
+.top-nav-bar-left {
+    float: left;
 }
-.top-nav-bar-right{
-    float:right;
-    margin-right:10px;
+
+.top-nav-bar-right {
+    float: right;
+    margin-right: 10px;
 }
-.main-info{
-    color:black;
+
+.main-info {
+
 }
-.footer{
-    color:black;
+
+.footer-short {
+    position:absolute;
+    width: 100%;
+    bottom:0;
+    line-height:40px;
 }
-#avater img{
-    width:30px;
-    height:30px;
+.footer-long {
+    position:relative;
+    margin-top:10px;
+    width: 100%;
+    bottom:0;
+    line-height:40px;
+}
+
+
+
+#avater img {
+    width: 30px;
+    height: 30px;
     position: absolute;
-    top:10px;
-    bottom:10px;
+    top: 10px;
+    bottom: 10px;
 }
+
+a:link {
+    color: white;
+}
+
+a:visited {
+    color: white;
+}
+
+a:hover {
+    color: white;
+}
+
+a:active {
+    color: white;
+}
+a{
+    text-decoration-line: none;
+}
+#top-nav p{
+    color: white;
+}
+
+.footer hr{
+    margin-top:10px;
+    width:90%;
+    left:5%;
+    position:relative;
+}
+
+.main-info{
+    margin-top:25px;
+    margin-left:5%;
+    width:90%;
+    height:80%;
+    position:relative;
+}
+
+.user-info{
+    margin-top:2%;
+    position:absolute;
+    width:70%;
+    height:90%;
+    left:20%;
+    text-align: left;
+    border:1px solid white;
+    background: gray;
+    color:white;
+}
+.side-menu{
+    width:15%;
+    height:90%;
+    margin-top:2%;
+    position:absolute;
+    left:5%;
+    border:1px solid white;
+    text-align:center;
+    line-height:40px;
+    background: gray;
+}
+
+.clan-info{
+    position:relative;
+    width:70%;
+    left:15%;
+    border:1px solid white;
+    color:white;
+}
+
+.clan-video{
+    position:relative;
+
+    border:1px solid white;
+}
+.clan-message{
+    position:relative;
+    width:100%;
+    height:25%;
+}
+.clan-user{
+    width:100%;
+    height:25%;
+}
+
