@@ -5,7 +5,7 @@ $(function(){
             var username = data.user.u_name;
             var u_avater = data.user.u_avater;
             var img_html = "<img src="+u_avater+">";
-            var username_html = "<a href="+url+">"+"</a>";
+            var username_html = "<a href="+"/userinfo/"+">"+"";
             $("#avater").html(img_html);
             $("#top-nav-bar-right-1 div").html(username_html);
             $("#top-nav-bar-right-1 div a").text(username);

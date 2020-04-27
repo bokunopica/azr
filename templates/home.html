@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Azr.pro</title>
-    <link href="../static/css/innerContent.css" rel="stylesheet">
+    <link href="../static/css/global_nav_footer.css" rel="stylesheet">
+    <link href="../static/css/home.css" rel="stylesheet">
     <script src="../static/js/jquery.min.js"></script>
     <script src="../static/js/jquery.cookie.js"></script>
     <script src="../static/js/user_info.js"></script>
+    <script src="../static/js/bili_video.js"></script>
 </head>
 <body>
 <nav id="top-nav">
@@ -19,11 +21,11 @@
         </div>
         <div id="top-nav-bar-left-3" class="top-nav-bar-left nav-active">
             <div>
-                <p>home</p>
+                <p>主页</p>
             </div>
         </div>
         <div id="top-nav-bar-left-4" class="top-nav-bar-left">
-            <div><a href="/user/">user</a></div>
+            <div><a href="">用户</a></div>
         </div>
 
         <div id="top-nav-bar-right-1" class="top-nav-bar-right">
@@ -41,41 +43,45 @@
     <div class="clan-info">
         <div class="clan-video">
             <iframe src="http://player.bilibili.com/player.html?aid=15599620&bvid=BV1Ux411M7mT&cid=25381648&page=1&danmaku=0"
-                    allowfullscreen="allowfullscreen" scrolling="no" frameborder="0" width="800" height="500"
-                    sandbox="allow-same-origin allow-forms allow-scripts"></iframe>
+                    allowfullscreen="allowfullscreen" scrolling="no" frameborder="0"
+                    sandbox="allow-same-origin allow-forms allow-scripts" id="bili_video"></iframe>
         </div>
+        <hr>
         <div class="clan-message">
-            <p>这是战队介绍</p>
+            <p>这是战队介绍:从前有只大鸽,在鸟圈附近召集了另外四只鸽子,组成了一个csgo战队,名为Azr.鸽,大鸽每次喊开车,到场的总是只有他自己和其他三只鸽子,那么另外那只鸽子究竟去了哪里了呢?</p>
         </div>
+        <hr>
         <div class="clan-user">
             <div class="clan-user-one">
-                <p>name</p>
-                <p>sign</p>
                 <img src="../static/img/default_avater.png" alt="">
+                <p>一鸽</p>
             </div>
             <div class="clan-user-one">
-                <p>name</p>
-                <p>sign</p>
                 <img src="../static/img/default_avater.png" alt="">
+                <p>二鸽</p>
             </div>
             <div class="clan-user-one">
-                <p>name</p>
-                <p>sign</p>
                 <img src="../static/img/default_avater.png" alt="">
+                <p>三鸽</p>
             </div>
-        </div>
-    </div>
-
-    <div class="footer-long">
-        <div class="inner">
-          <hr>
-          <p>made by <a href="https://github.com/bokunopica/">pyca</a>,more info about <a href="/resume/">him</a>.</p>
+            <div class="clan-user-one">
+                <img src="../static/img/default_avater.png" alt="">
+                <p>四鸽</p>
+            </div>
+            <div class="clan-user-one">
+                <img src="../static/img/default_avater.png" alt="">
+                <p>薛定谔鸽</p>
+            </div>
         </div>
     </div>
 </div>
 
-
-
+<div class="footer-long">
+    <div class="inner">
+        <hr>
+        <p>网站制作者:<a href="https://github.com/bokunopica/">pyca</a>,他的<a href="/resume/">个人简历</a>.</p>
+    </div>
+</div>
 
 </body>
 </html>

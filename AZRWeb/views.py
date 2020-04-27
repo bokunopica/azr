@@ -23,6 +23,6 @@ def register():
 def login():
     return render_template("login.html")
 
-@bp.route("/user/")
+@bp.route("/userinfo/")
 def user():
-    return render_template("user.html")
+    return render_template("userinfo.html")

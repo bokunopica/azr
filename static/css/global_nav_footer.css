@@ -1,0 +1,117 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+    position: relative;
+}
+
+body {
+    height: 100%;
+    background: url("../img/csgo-bg-opacity.jpg");
+    background-size: 100%;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+    position: relative;
+}
+
+p {
+    color: #cccccc;
+}
+
+#top-nav {
+    height: 50px;
+    background-color: #cccccc;
+    overflow: hidden;
+    position:relative;
+}
+
+#top-nav-bar div div {
+    padding: 15px;
+}
+
+#top-nav-bar-left-1 {
+    width: 50px;
+    height: 50px;
+}
+
+#icon1 {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+}
+
+.nav-active {
+    background-color: #a8a7a7;
+}
+
+.top-nav-bar-left {
+    float: left;
+}
+
+.top-nav-bar-right {
+    float: right;
+    margin-right: 10px;
+    margin-left:10px;
+}
+
+.footer-short {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    line-height: 40px;
+}
+
+.footer-long {
+    position: relative;
+    border-top: 10px;
+    width: 100%;
+    line-height: 40px;
+}
+
+
+#avater img {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+}
+
+a:link {
+    color: white;
+}
+
+a:visited {
+    color: white;
+}
+
+a:hover {
+    color: white;
+}
+
+a:active {
+    color: white;
+}
+
+a {
+    text-decoration-line: none;
+}
+
+#top-nav p {
+    color: white;
+}
+
+.footer-long hr {
+    margin-top: 10px;
+    width: 90%;
+    left: 5%;
+    position: relative;
+}
+

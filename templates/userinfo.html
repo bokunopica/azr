@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Azr.pro</title>
+    <link href="../static/css/global_nav_footer.css" rel="stylesheet">
+    <link href="../static/css/userinfo.css" rel="stylesheet">
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/jquery.cookie.js"></script>
+    <script src="../static/js/scroll_side_menu.js"></script>
+    <script src="../static/js/user_info.js"></script>
+    <script src="../static/js/get_user_info.js"></script>
+
+</head>
+<body>
+<nav id="top-nav">
+    <div id="top-nav-bar">
+        <div id="top-nav-bar-left-1" class="top-nav-bar-left">
+            <div><img src="../static/img/azricon.png" id="icon1"></div>
+        </div>
+        <div id="top-nav-bar-left-2" class="top-nav-bar-left">
+            <div><a href="/">Azr.pro</a></div>
+        </div>
+        <div id="top-nav-bar-left-3" class="top-nav-bar-left">
+            <div><a href="/home/">主页</a></div>
+        </div>
+        <div id="top-nav-bar-left-4" class="top-nav-bar-left">
+            <div><a href="">用户</a></div>
+        </div>
+        <div id="top-nav-bar-right-1" class="top-nav-bar-right nav-active">
+            <div><a href="/login/">请登录</a></div>
+        </div>
+        <div id="top-nav-bar-right-2" class="top-nav-bar-right">
+            <div id="avater-change">
+                <img src="#" alt="">
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+
+
+<div class="main-info">
+    <div class="side-menu">
+        <a href="#info">个人信息</a>
+        <hr>
+        <a href="#password">密码</a>
+        <hr>
+        <a href="#email">邮箱验证</a>
+        <hr>
+        <a href="#change-avater">头像</a>
+        <hr>
+        <a href="#sign">签名</a>
+        <hr>
+    </div>
+    <div class="user-info">
+        <div id="info">
+            <div class="user-info-title"><h2>个人信息</h2></div>
+            <div class="user-info-body">
+                <h4>用户名</h4><p class="username-api-info">我是一只鸽</p>
+                <h4>邮箱</h4><p class="email-api-info">gugu@qq.com</p>
+                <h4>头像</h4>
+                <img class="avater-api-info" src="../static/img/default_avater.png">
+                <br>
+                <h4>签名</h4><p class="sign-api-info">咕咕咕咕咕咕</p>
+            </div>
+        </div>
+        <hr>
+        <div id="password">
+            <div class="user-info-title"><h2>密码</h2></div>
+            <div class="user-info-body">
+                <span>旧密码</span>
+                <br>
+                <input type="password" name="old_password">
+                <br>
+                <span>新密码</span>
+                <br>
+                <input type="password" name="new_password">
+                <br>
+                <span>新密码确认</span>
+                <br>
+                <input type="password" name="new_password_check">
+                <br>
+                <button>修改密码</button>
+            </div>
+        </div>
+        <hr>
+        <div id="email">
+            <div class="user-info-title"><h2>邮箱</h2></div>
+            <div class="user-info-body">
+                <h4>您的邮箱</h4><p class="email-api-info">gugu@qq.com</p>
+                <h4>邮箱验证码 </h4><input type="text" name="email_check">
+                <button>发送验证码</button>
+                <br>
+                <button>确认验证码</button>
+            </div>
+        </div>
+        <hr>
+        <div id="change-avater">
+            <div class="user-info-title"><h2>头像</h2></div>
+            <div class="user-info-body">
+                <h4>您的头像</h4>
+                <img class="avater-api-info" src="../static/img/default_avater.png"><br>
+                <h4>上传头像</h4>
+                <input type="file" name="avater_upload"><br>
+                <button>确认修改</button>
+            </div>
+        </div>
+        <hr>
+        <div id="sign">
+            <div class="user-info-title"><h2>签名</h2></div>
+            <div class="user-info-body">
+                <h4>您的签名</h4><p class="sign-api-info">咕咕咕</p>
+                <h4>新的签名</h4>
+                <input type="text" name="new_sign"><br>
+                <button>确认修改</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="footer-long">
+    <div class="inner">
+      <hr>
+      <p>made by <a href="https://github.com/bokunopica/">pyca</a>,more info about <a href="/resume/">him</a>.</p>
+    </div>
+</div>
+
+
+
+</body>
+</html>
