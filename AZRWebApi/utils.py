@@ -1,3 +1,4 @@
+import base64
 import hashlib
 import smtplib
 from email.mime.text import MIMEText
@@ -65,4 +66,11 @@ def admin_check(func):
         return func(*args, **kwargs)
     return wrapper
 
-image_format = ['png','jpg','jpeg']
+image_format = ['png','jpg','jpeg','bmp']
+
+
+def base64_img_save(base64_str,file_dir):
+    base64_data = base64_str.split(',',1)[1]
+    base64decode = base64.b64decode(base64_data)
+    with open(file_dir,"wb+")as f:
+        f.write(base64decode)

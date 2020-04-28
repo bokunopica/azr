@@ -22,7 +22,7 @@ class User(BaseModel):
     u_email_check = db.Column(db.Boolean, default=False, comment='邮箱验证')
     is_clan_member = db.Column(db.Boolean, default=False, comment='是否是战队成员 1是 0否')
     is_admin = db.Column(db.Boolean, default=False, comment='是否是管理员 1是 0否')
-    u_avater = db.Column(db.String(150), default='/static/img/default_avater.png', comment='头像')
+    u_avater = db.Column(db.String(150), default='/static/defaultImg/default_avater.png', comment='头像')
     u_sign = db.Column(db.String(100), nullable=True, default="", comment='签名')
     u_create_time = db.Column(db.Integer, nullable=False,comment='创建时间')
 

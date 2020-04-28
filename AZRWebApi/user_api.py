@@ -1,4 +1,6 @@
+import base64
 import hashlib
+import json
 import os
 import time
 import uuid
@@ -8,8 +10,8 @@ from flask import g, request
 from flask_restful import Resource, reqparse, fields, marshal
 
 from AZRWebApi import User
-from AZRWebApi.utils import sendEmail, valueOfSha256, login_check, image_format
-from config.extensions import cache, BASE_DIR, UPLOAD_FOLDER
+from AZRWebApi.utils import sendEmail, valueOfSha256, login_check, image_format, base64_img_save
+from config.extensions import cache, BASE_DIR, AVATER_FOLDER
 
 mail_executor = ThreadPoolExecutor()
 
@@ -96,7 +98,7 @@ class user_mail_check(Resource):
     def post(self):
         user = g.user
         if user.u_email_check==True:
-            data = {"msg":"该用户的邮箱已激活","user":user}
+            data = {"msg":"activated","user":user}
             return marshal(data,user_login_register_fields)
         username = user.u_name
         email = user.u_email
@@ -104,14 +106,14 @@ class user_mail_check(Resource):
         cache.set(username,verify_code,timeout=60)
         content = "您的验证码为:"+verify_code
         mail_executor.submit(sendEmail(receivers=[email],title='邮箱验证',content=content))
-        data = {"msg":"验证邮件已发送","user":user,"access_token":g.access_token}
+        data = {"msg":"ok","user":user,"access_token":g.access_token}
         return marshal(data,user_login_register_fields)
 
     @login_check
     def put(self):
         user = g.user
         if user.u_email_check == True:
-            data = {"msg": "该用户的邮箱已激活", "user": user}
+            data = {"msg": "activated", "user": user}
             return marshal(data, user_login_register_fields)
         args = mail_check_parser.parse_args()
         verify_code = args.get("verify_code")
@@ -121,10 +123,10 @@ class user_mail_check(Resource):
             user = g.user
             user.u_email_check = True
             user.save()
-            data = {"msg":"邮箱验证成功","user":user,"access_token":g.access_token}
+            data = {"msg":"ok","user":user,"access_token":g.access_token}
             return marshal(data,user_login_register_fields)
         else:
-            data = {"msg":"邮箱验证失败"}
+            data = {"msg":"failed"}
             return data
 
 
@@ -139,7 +141,7 @@ class user_sign_change(Resource):
         try:
             user.u_sign = new_sign
             user.save()
-            data = {"msg":"changed ok","user":user,"access_token":g.access_token}
+            data = {"msg":"ok","user":user,"access_token":g.access_token}
             return marshal(data,user_login_register_fields)
         except Exception as e:
             data = {"msg":e,"user":user,"access_token":g.access_token}
@@ -151,18 +153,40 @@ class user_avater_change(Resource):
     @login_check
     def put(self):
         try:
-            file = request.files['avater']
+            recv_data = request.get_data()
+            recv_data = json.loads(bytes.decode(recv_data))
+            imgBase = recv_data.get("imgBase")
+            file_format = recv_data.get("imgFormat")
+            if file_format not in image_format:
+                return {"msg": "错误的图片格式"}
+            time_stamp_string = str(int(time.time()))
+            filedir = valueOfSha256(imgBase) + time_stamp_string + "." + file_format
+            save_dir = os.path.join(BASE_DIR, AVATER_FOLDER, filedir)
+            base64_img_save(imgBase,save_dir)
+            user = g.user
+            user.u_avater = '/' + AVATER_FOLDER + '/' + filedir
+            user.save()
+            data = {'msg': "ok", "user": user, "access_token": g.access_token}
+            return marshal(data, user_login_register_fields)
         except Exception as e:
-            return {"msg":e}
-        filename, file_format = file.filename.split(".")
-        if file_format not in image_format:
-            return {"msg":"错误的图片格式"}
-        time_stamp_string = str(int(time.time()))
-        filedir = valueOfSha256(filename)+time_stamp_string+"."+file_format
-        save_dir = os.path.join(BASE_DIR, UPLOAD_FOLDER, filedir)
-        file.save(save_dir)
-        user = g.user
-        user.u_avater = '/'+UPLOAD_FOLDER+'/'+filedir
-        user.save()
-        data = {'msg':"avater changed","user":user,"access_token":g.access_token}
-        return marshal(data,user_login_register_fields)
+            return {"msg":"error"}
+
+user_pwd_change_parser = reqparse.RequestParser()
+user_pwd_change_parser.add_argument("oldpwd", type=str, required=True, help="please input a correct password")
+user_pwd_change_parser.add_argument("newpwd", type=str, required=True, help="please input a correct password")
+
+class user_password_change(Resource):
+    @login_check
+    def put(self):
+        args = user_pwd_change_parser.parse_args()
+        if args.get("newpwd") != args.get("oldpwd"):
+            user = g.user
+            source_pwd = args.get('newpwd')
+            hash_model = hashlib.sha256()
+            hash_model.update(source_pwd.encode("utf-8"))
+            password = hash_model.hexdigest()
+            user.u_password = password
+            user.save()
+            return {"msg":"ok"}
+        else:
+            return {"msg":"failed"}

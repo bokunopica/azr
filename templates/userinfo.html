@@ -9,14 +9,14 @@
     <script src="../static/js/jquery.cookie.js"></script>
     <script src="../static/js/scroll_side_menu.js"></script>
     <script src="../static/js/user_info.js"></script>
-    <script src="../static/js/get_user_info.js"></script>
+    <script src="../static/js/get_post_user_info.js"></script>
 
 </head>
 <body>
 <nav id="top-nav">
     <div id="top-nav-bar">
         <div id="top-nav-bar-left-1" class="top-nav-bar-left">
-            <div><img src="../static/img/azricon.png" id="icon1"></div>
+            <div><img src="../static/defaultImg/azricon.png" id="icon1"></div>
         </div>
         <div id="top-nav-bar-left-2" class="top-nav-bar-left">
             <div><a href="/">Azr.pro</a></div>
@@ -25,13 +25,13 @@
             <div><a href="/home/">主页</a></div>
         </div>
         <div id="top-nav-bar-left-4" class="top-nav-bar-left">
-            <div><a href="">用户</a></div>
+            <div><a href="#">用户</a></div>
         </div>
         <div id="top-nav-bar-right-1" class="top-nav-bar-right nav-active">
             <div><a href="/login/">请登录</a></div>
         </div>
         <div id="top-nav-bar-right-2" class="top-nav-bar-right">
-            <div id="avater-change">
+            <div id="avater">
                 <img src="#" alt="">
             </div>
         </div>
@@ -61,7 +61,7 @@
                 <h4>用户名</h4><p class="username-api-info">我是一只鸽</p>
                 <h4>邮箱</h4><p class="email-api-info">gugu@qq.com</p>
                 <h4>头像</h4>
-                <img class="avater-api-info" src="../static/img/default_avater.png">
+                <img class="avater-api-info" src="../static/defaultImg/default_avater.png">
                 <br>
                 <h4>签名</h4><p class="sign-api-info">咕咕咕咕咕咕</p>
             </div>
@@ -72,17 +72,19 @@
             <div class="user-info-body">
                 <span>旧密码</span>
                 <br>
-                <input type="password" name="old_password">
+                <input type="password" name="old_password" id="old-password-input">
                 <br>
                 <span>新密码</span>
                 <br>
-                <input type="password" name="new_password">
+                <input type="password" name="new_password" id="new-password-input">
+                <span id="new-password-input-text"></span>
                 <br>
                 <span>新密码确认</span>
                 <br>
-                <input type="password" name="new_password_check">
+                <input type="password" name="new_password_check" id="new-password-input-confirm">
+                <span id="new-password-input-confirm-text"></span>
                 <br>
-                <button>修改密码</button>
+                <button id="password-change-button">修改密码</button><span id="password-change-text"></span>
             </div>
         </div>
         <hr>
@@ -90,10 +92,12 @@
             <div class="user-info-title"><h2>邮箱</h2></div>
             <div class="user-info-body">
                 <h4>您的邮箱</h4><p class="email-api-info">gugu@qq.com</p>
-                <h4>邮箱验证码 </h4><input type="text" name="email_check">
-                <button>发送验证码</button>
+                <h4>邮箱验证码 </h4><input id="email-check-verify-code" type="text" name="email_check">
+                <button id="email-send-button">发送验证码</button>
+                <span id="email-send-text"></span>
                 <br>
-                <button>确认验证码</button>
+                <button id="email-check-button">确认验证码</button>
+                <span id="email-check-text"></span>
             </div>
         </div>
         <hr>
@@ -101,20 +105,25 @@
             <div class="user-info-title"><h2>头像</h2></div>
             <div class="user-info-body">
                 <h4>您的头像</h4>
-                <img class="avater-api-info" src="../static/img/default_avater.png"><br>
+                <img class="avater-api-info" src="../static/defaultImg/default_avater.png"><br>
                 <h4>上传头像</h4>
-                <input type="file" name="avater_upload"><br>
-                <button>确认修改</button>
+                <img class="avater-api-info" id="avater_upload_show"><br>
+                <input type="file" name="avater_upload" id="avater_upload"><br>
+                <button id="avater-change-button">确认修改</button>
+
+                <form action=""></form>
             </div>
         </div>
         <hr>
         <div id="sign">
             <div class="user-info-title"><h2>签名</h2></div>
             <div class="user-info-body">
-                <h4>您的签名</h4><p class="sign-api-info">咕咕咕</p>
+                <h4>您的签名</h4><p class="sign-api-info" id="sign-now">咕咕咕</p>
                 <h4>新的签名</h4>
-                <input type="text" name="new_sign"><br>
-                <button>确认修改</button>
+                <textarea type="text" name="new_sign" id="sign-change-input"></textarea>
+                <br>
+                <button id="sign-change-button">确认修改</button>
+                <span id="sign-change-text"></span>
             </div>
         </div>
     </div>
