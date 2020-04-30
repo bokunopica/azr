@@ -11,6 +11,10 @@ def index():
 def home():
     return render_template("home.html")
 
+@bp.route("/user/")
+def user():
+    return render_template("user.html")
+
 @bp.route("/resume/")
 def resume():
     return render_template("personal_info.html")
@@ -24,5 +28,5 @@ def login():
     return render_template("login.html")
 
 @bp.route("/userinfo/")
-def user():
+def userinfo():
     return render_template("userinfo.html")

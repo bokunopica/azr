@@ -1,0 +1,83 @@
+.main-info {
+    margin-top: 25px;
+    margin-left: 5%;
+    width: 90%;
+    position: relative;
+}
+
+.user-info {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    padding-bottom: 3%;
+    position: relative;
+    width: 60%;
+    left: 22%;
+    text-align: left;
+    border: 1px solid white;
+    background: gray;
+    color: white;
+}
+
+.side-menu {
+    width: 13%;
+    position: absolute;
+    border: 1px white solid;
+    line-height: 40px;
+    background: gray;
+    padding:2%;
+}
+.side-menu h4{
+    display: inline;
+    margin-left:1%;
+    font-size: 13px;
+}
+.side-menu p{
+    display: inline-block;
+    margin-left:3%;
+    font-size:13px;
+}
+.side-menu #side-avater{
+    width: 95%;
+    height:95%;
+}
+
+.side-menu-info-body{
+    position: relative;
+    display: inline-block;
+    width:80%;
+    margin:5%;
+}
+.user-info-body{
+    position: relative;
+    display: inline-block;
+    width:95%;
+    margin-left:5%;
+    margin-top:2%;
+}
+
+.user-info-body #uib-float{
+    float: left;
+}
+
+.uib-info div{
+    margin-top:2%;
+    margin-left:5%;
+    margin-bottom:5%;
+    width:100%;
+}
+
+.uib-info{
+    width: 60%;
+}
+
+.uib-admin{
+    position:relative;
+    margin-top:2%;
+    margin-right:5%;
+}
+
+.uib-admin button{
+    width:15%;
+    line-height: 20px;
+    display: none;
+}

@@ -23,7 +23,7 @@ users_fields = {
 class users(Resource):
     @admin_check
     def get(self):
-        users = User.query.all()
+        users = User.query.filter_by(is_delete=False).all()
         data = {"msg":"ok","users":users}
         return marshal(data,users_fields)
 
@@ -56,6 +56,7 @@ class user(Resource):
     @admin_check
     def delete(self,user_id):
         user = User.query.get(user_id)
-        user.delete()
+        user.is_delete = True
+        user.save()
         data = {"msg": "delete success", "users": user}
         return marshal(data,users_fields)

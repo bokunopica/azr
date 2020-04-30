@@ -3,7 +3,7 @@ $(function(){
     loginButton.click(function(){
         $.post("/api/user/login_register/?action=login",{
         username:$("#login-input-username input").val(),
-        password:$("#login-input-password input").val(),
+        password:$.md5($("#login-input-password input").val()),
         },function(data,statusText,xhr){
             if(data.msg==="login success"){
                 alert("登录成功");

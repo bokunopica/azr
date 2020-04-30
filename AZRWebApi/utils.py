@@ -51,12 +51,15 @@ def login_check(func):
         g.access_token = token
         if not user:
             return {"msg": "登录验证失败"}
+        if user.is_delete:
+            print("a")
+            return {"msg":"用户已被删除"}
         return func(*args, **kwargs)
     return wrapper
 
 def admin_check(func):
     def wrapper(*args,**kwargs):
-        token = token_parser.parse_args().get("access_token")
+        token = request.cookies.get("access_token")
         user_id = cache.get(token)
         user = User.query.get(user_id)
         g.user = user

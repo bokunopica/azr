@@ -158,28 +158,36 @@ $(function () {
 
 
     avater_change_button.click(function () {
-        var IMG_BASE = $("#avater_upload_show").attr("src"); //要上传的图片的base64编码
-        var IMG_ROUTE = $("#avater_upload").val();//获取上传图片路径，为获取图片类型使用
-        var IMG_ENDFOUR = IMG_ROUTE.substr(IMG_ROUTE.length - 4, 4);//截取路径后四位，判断图片类型
-        var IMG_FORMAT = "jpeg"; //图片类型***
-        if (IMG_ENDFOUR.trim() === ".jpg")
-            IMG_FORMAT = "jpg";
-        else if (IMG_ENDFOUR.trim() === ".png")
-            IMG_FORMAT = "png";
-        else if (IMG_ENDFOUR.trim() === ".bmp")
-            IMG_FORMAT = "bmp";
-        //图片正式开始上传
-        $.ajax({
-            type: "PUT",
-            url: "/api/user/avater_change/",
-            data: JSON.stringify(
-                {'imgBase': IMG_BASE, 'imgFormat': IMG_FORMAT},
-            ),
-            dataType: "json",
-            success: function (data) {
-                alert(data.msg);
-            }
-        });
+        var size = $("#avater_upload").get(0).files[0].size;
+        if(size<101000){
+            var IMG_BASE = $("#avater_upload_show").attr("src"); //要上传的图片的base64编码
+            var IMG_ROUTE = $("#avater_upload").val();//获取上传图片路径，为获取图片类型使用
+            var IMG_ENDFOUR = IMG_ROUTE.substr(IMG_ROUTE.length - 4, 4);//截取路径后四位，判断图片类型
+            var IMG_FORMAT = "jpeg"; //图片类型***
+            if (IMG_ENDFOUR.trim() === ".jpg")
+                IMG_FORMAT = "jpg";
+            else if (IMG_ENDFOUR.trim() === ".png")
+                IMG_FORMAT = "png";
+            else if (IMG_ENDFOUR.trim() === ".bmp")
+                IMG_FORMAT = "bmp";
+            //图片正式开始上传
+            $.ajax({
+                type: "PUT",
+                url: "/api/user/avater_change/",
+                data: JSON.stringify(
+                    {'imgBase': IMG_BASE, 'imgFormat': IMG_FORMAT},
+                ),
+                dataType: "json",
+                success: function (data) {
+                    if(data.msg ==="ok"){
+                        alert("头像更换成功");
+                    }
+                }
+            });
+        }else{
+            alert("上传图片大小不要大于100KB")
+        }
+
     });
 
     $("#password-change-button").click(function () {
@@ -189,7 +197,7 @@ $(function () {
             $.ajax({
                 type: "put",
                 url: "/api/user/pwd_change/",
-                data: JSON.stringify({'oldpwd': old_password, 'newpwd': new_password}),
+                data: JSON.stringify({'oldpwd': $.md5(old_password), 'newpwd': $.md5(new_password)}),
                 dataType: "json",
                 contentType:"application/json",
                 success: function (data) {

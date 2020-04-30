@@ -1,4 +1,3 @@
-import base64
 import hashlib
 import json
 import os
@@ -41,6 +40,18 @@ user_login_register_fields = {
     "user": fields.Nested(user_fields),
     "access_token":fields.String,
 }
+users_fields = {
+    "id": fields.Integer,
+    "u_name": fields.String,
+    "u_avater": fields.String,
+    "u_sign": fields.String,
+}
+users_api_fields = {
+    "msg":fields.String,
+    "users":fields.Nested(users_fields),
+}
+
+
 
 
 class user_api_resource(Resource):
@@ -48,6 +59,21 @@ class user_api_resource(Resource):
     def get(self):
         data = {"msg": "ok","user":g.user,"access_token":g.access_token}
         return marshal(data,user_login_register_fields)
+
+class users_api_resource(Resource):
+    @login_check
+    def get(self):
+        users = User.query.filter_by(is_delete=False).all()
+        data = {"msg":"ok","users":users}
+        return marshal(data,users_api_fields)
+
+
+class clan_users(Resource):
+    def get(self):
+        users = User.query.filter_by(is_clan_member=True).filter_by(is_delete=False).all()
+        data = {"msg":"ok","users":users}
+        return marshal(data,users_api_fields)
+
 
 
 class user_login_register(Resource):
@@ -58,6 +84,13 @@ class user_login_register(Resource):
             u_name = args.get('username')
             source_pwd = args.get('password')
             email = args.get('email')
+            try:
+                email_head,domain = email.split("@")
+                domain_head,domain_tail = domain.split(".")
+                if not(email_head and domain_head and domain_tail):
+                    return {"msg": "email failed"}
+            except:
+                return {"msg":"email failed"}
             password = valueOfSha256(source_pwd)
             create_time = int(time.time())
             user = User(u_name=u_name, u_password=password, u_email=email,u_create_time = create_time)
@@ -153,6 +186,7 @@ class user_avater_change(Resource):
     @login_check
     def put(self):
         try:
+
             recv_data = request.get_data()
             recv_data = json.loads(bytes.decode(recv_data))
             imgBase = recv_data.get("imgBase")
@@ -164,6 +198,19 @@ class user_avater_change(Resource):
             save_dir = os.path.join(BASE_DIR, AVATER_FOLDER, filedir)
             base64_img_save(imgBase,save_dir)
             user = g.user
+            former_avater_file = user.u_avater.split('/')
+            former_avater_path = os.path.join(BASE_DIR,AVATER_FOLDER,former_avater_file[-1])
+            if os.path.exists(former_avater_path):  # 如果文件存在
+                try:
+                    os.remove(former_avater_path)
+                except:
+                    pass
+            else:
+                pass
+
+
+
+
             user.u_avater = '/' + AVATER_FOLDER + '/' + filedir
             user.save()
             data = {'msg': "ok", "user": user, "access_token": g.access_token}
