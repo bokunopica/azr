@@ -1,5 +1,6 @@
 from flask_restful import Api
 
+from AZRWebApi.admin_anonymous_api import anonymous_delete, anonymous_message_delete
 from AZRWebApi.anonymous_api import anonymous_query_create, anonymous_message_query_create
 from .models import *
 from AZRWebApi.admin_user_api import users, user
@@ -25,3 +26,7 @@ azr_web_user_client_api.add_resource(clan_users, '/cm/')
 # admin_client
 azr_web_admin_client_api.add_resource(users, '/user/')
 azr_web_admin_client_api.add_resource(user, '/user/<int:user_id>/')
+azr_web_admin_client_api.add_resource(anonymous_delete, '/an/')
+azr_web_admin_client_api.add_resource(anonymous_message_delete, '/am/')
+
+

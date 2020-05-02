@@ -1,0 +1,151 @@
+.main-info {
+    margin-top: 25px;
+    margin-left: 5%;
+    width: 90%;
+    position: relative;
+}
+
+
+
+.side-menu {
+    width: 13%;
+    position: absolute;
+    border: 1px white solid;
+    line-height: 40px;
+    background: gray;
+    padding:2%;
+}
+.side-menu h4{
+    display: inline;
+    margin-left:1%;
+    font-size: 13px;
+}
+.side-menu p{
+    display: inline-block;
+    margin-left:3%;
+    font-size:13px;
+}
+.side-menu #side-avater{
+    width: 95%;
+    height:95%;
+}
+
+.side-menu-info-body{
+    position: relative;
+    display: inline-block;
+    width:80%;
+    margin:5%;
+}
+
+.anonymous-info {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    padding-bottom: 1.5%;
+    padding-left:1%;
+    position: relative;
+    width: 60%;
+    left: 22%;
+    text-align: left;
+    border: 1px solid white;
+    background: gray;
+    color: white;
+}
+
+
+#message-body{
+    position:relative;
+    width:80%;
+    margin-top:1%;
+    margin-left:3%;
+}
+
+.anonymous-info hr{
+    width: 90%;
+}
+
+#message-body div{
+    margin-left:1%;
+    margin-bottom:0.5%;
+}
+
+
+
+#message-href{
+    float:left;
+}
+
+#message-time{
+    float: right;
+}
+
+#message-floor{
+    float: right;
+}
+
+.message-button{
+    float:right;
+    display:none;
+}
+
+#anonymous-publish{
+    margin-left: 5%;
+    width: 90%;
+    position: relative;
+}
+
+#anonymous-wrap{
+    margin-top: 3%;
+    margin-bottom: 3%;
+    padding-bottom: 3%;
+    padding-left:1%;
+    position: relative;
+    width: 60%;
+    left: 22%;
+    text-align: left;
+    border: 1px solid white;
+    background: gray;
+    color: white;
+}
+
+#msg-title-wrap{
+    margin-top:3%;
+}
+
+#msg-title-wrap input{
+    width:50%;
+}
+
+
+#msg-body-wrap textarea{
+    resize:none;
+    width:50%;
+    height:150px;
+    position:relative;
+}
+
+#msg-button-wrap{
+    width:50%;
+}
+
+#msg-button-wrap button{
+    width:50px;
+    height:25px;
+    position:relative;
+    float:right;
+}
+
+
+#publish-warn{
+    display:none;
+    float:right;
+}
+
+#back-to-main{
+    position:absolute;
+    right:10%;
+    top:2%;
+    border:1px black solid;
+    border-radius: 5%;
+    background: #282828;
+
+}
