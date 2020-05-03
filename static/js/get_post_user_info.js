@@ -27,7 +27,7 @@ $(function () {
          */
         function () {
             email_send_button.attr("disabled", true);
-            var send_wait_time = 5;
+            var send_wait_time = 60;
             email_send_button.text(send_wait_time + "s");
             time_change = setInterval(function () {
                 if (send_wait_time <= 1) {

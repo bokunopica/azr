@@ -10,7 +10,7 @@ $(function () {
                     $("#anonymous-info-wrap").clone().appendTo($(".anonymous-info"));
                 }
                 for(var j=0;j<anonymous_titles.length;j++){
-                    $(".an_titles").eq(j).attr("href","/anonymous/"+anonymous_titles[j].id+"/").text(anonymous_titles[j].a_content);
+                    $(".an_titles").eq(j).attr("href","/anonymous/"+anonymous_titles[j].id+"/").text(anonymous_titles[j].a_title);
                     var unixTimestamp = new Date(anonymous_titles[j].a_timestamp * 1000);
                     var commonTime = unixTimestamp.toLocaleString();
                     $(".message-time").eq(j).text(commonTime);

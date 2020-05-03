@@ -82,3 +82,8 @@
     line-height: 20px;
     display: none;
 }
+
+.uib-avater img{
+    width:128px;
+    height:128px;
+}
