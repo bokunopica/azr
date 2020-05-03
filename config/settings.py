@@ -14,6 +14,7 @@ def init_app(app):
 
 
 
+
 class DevConfig(Config):
     DEBUG = True
 
@@ -32,3 +33,19 @@ class DevConfig(Config):
     CACHE_TYPE = 'redis'
 
 
+class OperationConfig(Config):
+    DEBUG = False
+
+    TESTING = False
+
+    THREAD = True
+
+    SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://root:123456@localhost:3306/azrweb"
+
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+    SESSION_TYPE = 'redis'
+
+    SECRET_KEY = 'pyca'
+
+    CACHE_TYPE = 'redis'

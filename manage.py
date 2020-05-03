@@ -10,6 +10,7 @@ app = Flask(__name__)
 init_app(app)
 init_ext(app)
 
+
 manager=Manager(app)
 manager.add_command('db', MigrateCommand)
 
