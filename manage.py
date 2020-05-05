@@ -16,7 +16,7 @@ manager.add_command('db', MigrateCommand)
 
 @app.route('/favicon.ico')
 def favicon():
-    return app.send_static_file('img/favicon.ico')
+    return app.send_static_file('defaultImg/favicon.ico')
 
 if __name__ == '__main__':
     manager.run()
