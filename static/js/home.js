@@ -19,6 +19,7 @@ $(function () {
                 var element = "<div class='clan-user-one'><img src="+user.u_avater+" alt=''><p>"+user.u_name+"</p></div>";
                 $(element).appendTo($(".clan-user"))
             }
+            $(".clan-user-one img").width("80%").height("80%");
         }
     });
 
