@@ -1,9 +1,7 @@
 from flask import Config
 
 from AZRWeb import bp
-from AZRWebApi import azr_web_user_client_api,azr_web_admin_client_api
-
-
+from AZRWebApi import azr_web_user_client_api, azr_web_admin_client_api, azr_web_rent_house_api
 
 
 def init_app(app):
@@ -11,6 +9,7 @@ def init_app(app):
     app.register_blueprint(bp)
     azr_web_user_client_api.init_app(app)
     azr_web_admin_client_api.init_app(app)
+    azr_web_rent_house_api.init_app(app)
 
 
 

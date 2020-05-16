@@ -43,3 +43,27 @@ class AnonymousMessage(BaseModel):
     am_content = db.Column(db.String(50), nullable=False, comment='匿名信息内容')
     am_refer_to = db.Column(db.Integer, nullable=True, comment='匿名信息回复指向楼层')
     am_timestamp = db.Column(db.Integer, nullable=False, comment='匿名信息回复时间戳')
+
+
+class Rent(BaseModel):
+    __tablename__ = 'rent'
+    date = db.Column(db.String(10), nullable=False, comment='付款日')
+    year = db.Column(db.Integer, nullable=False, comment='付款日-年')
+    month = db.Column(db.Integer, nullable=False, comment='付款日-月')
+    day = db.Column(db.Integer, nullable=False, comment='付款日-日')
+    house_num = db.Column(db.Integer, nullable=False, comment='房号')
+    meter_reading_last_month = db.Column(db.Float, nullable=False, comment='电表读数(上月)')
+    meter_reading_this_month = db.Column(db.Float, nullable=False, comment='电表读数(本月)')
+    electricity_consumption = db.Column(db.Float, nullable=False, comment='用电量')
+    electricity_expense = db.Column(db.Float, nullable=False, comment='电费')
+    water_meter_reading_last_month = db.Column(db.Float, nullable=False, comment='水表读数(上月)')
+    water_meter_reading_this_month = db.Column(db.Float, nullable=False, comment='水表读数(本月)')
+    water_consumption = db.Column(db.Float, nullable=False, comment='用水量')
+    water_expense = db.Column(db.Float, nullable=False, comment='水费')
+    other_fee = db.Column(db.Float, nullable=True, default=0, comment='其他费用')
+    rent_fee = db.Column(db.Float, nullable=False, comment='房租')
+    total_fee = db.Column(db.Float, nullable=False, comment='合计')
+    remark = db.Column(db.String(50), nullable=True, comment='备注')
+
+
+

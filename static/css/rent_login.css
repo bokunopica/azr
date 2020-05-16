@@ -1,0 +1,58 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    background-color:gray;
+}
+
+#login-reg-body{
+    width:500px;
+    height:500px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-top:-250px;
+    margin-left:-250px;
+    background-color: #6f89a0;
+    border-radius: 5%;
+}
+#login-content{
+    position:absolute;
+    top: 50%;
+    left:50%;
+    margin-top:-140px;
+    margin-left:-162px;
+}
+#login-input-username input{
+    width:310px;
+    height:40px;
+}
+#login-input-password input{
+    width:310px;
+    height:40px;
+}
+#login-button button{
+    width:200px;
+    height:40px;
+    left:115px;
+    top:250px;
+    position:absolute;
+    font-size: 24px;
+}
+#reg-trans{
+    width:100px;
+    height:40px;
+    top:256px;
+    left:40px;
+    bottom: 0;
+    position:absolute;
+}
+
+#login-text-username span{
+    font-size:25px;
+}
+
+#login-text-password span{
+    font-size:25px;
+}

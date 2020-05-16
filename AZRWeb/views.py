@@ -46,3 +46,7 @@ def anonymous():
 @bp.route("/anonymous/<int:a_id>/")
 def anonymous_aid(a_id):
     return render_template("anonymous_aid.html", data={"a_id": a_id})
+
+@bp.route("/rent_login/")
+def rent_login():
+    return render_template("rent_login.html")
