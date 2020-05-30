@@ -21,7 +21,7 @@ class DevConfig(Config):
 
     THREAD = True
 
-    SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://root:123456@localhost:3306/azrweb"
+    SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://XXXXXX:XXXXXX@XXXXX:XXXXX/XXXXX"
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
@@ -39,7 +39,7 @@ class OperationConfig(Config):
 
     THREAD = True
 
-    SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://root:123456@localhost:3306/azrweb"
+    SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://XXXXXX:XXXXXX@XXXXX:XXXXX/XXXXX"
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
