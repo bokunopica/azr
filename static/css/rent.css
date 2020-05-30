@@ -2,3 +2,20 @@
     font-size:16px;
     font-weight: bold;
 }
+
+.dropdown-menu{
+    min-width:100%;
+}
+
+.dropdown-toggle{
+    width:85px;
+}
+
+#modal-btn{
+    position:absolute;
+    right:50%;
+}
+
+td,th{
+    text-align: center;
+}
